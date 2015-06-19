@@ -1,10 +1,8 @@
 FROM ubuntu:14.04
 
-RUN apt-get update && apt-get -y install build-essential libjansson-dev libssl-dev libmicrohttpd-dev git wget unzip jq
+RUN apt-get update && apt-get -y install build-essential libjansson-dev libssl-dev libmicrohttpd-dev git jq
 
-RUN wget https://github.com/github/brubeck/archive/956375bc21b6604497efa0d69c858cb10be430bd.zip -O brubeck.zip
-
-RUN unzip brubeck.zip && mv brubeck-* brubeck
+RUN git clone https://github.com/github/brubeck.git
 
 RUN cd brubeck && ./script/bootstrap
 
